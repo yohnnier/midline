@@ -132,9 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener para abrir el modal al hacer clic en imágenes/videos con clase 'zoomable'
     document.querySelectorAll('.zoomable').forEach(mediaElement => {
         mediaElement.addEventListener('click', () => {
-            const src = mediaElement.src || mediaElement.querySelector('source').src; // Obtener src de img o source de video
+            const src = mediaElement.src || (mediaElement.tagName.toLowerCase() === 'video' ? mediaElement.querySelector('source').src : null);
             const type = mediaElement.tagName.toLowerCase() === 'img' ? 'image' : 'video';
-            openModal(src, type);
+            if (src) { // Asegurarse de que tenemos una fuente válida
+                openModal(src, type);
+            }
         });
     });
 
