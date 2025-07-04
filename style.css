@@ -24,19 +24,19 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px; /* HACIENDO EL FORMATO MÁS ANCHO */
     margin: 0 auto;
     padding: 20px;
 }
 
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     margin-bottom: 15px;
 }
 
 h1 { font-size: 2.8em; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-h2 { font-size: 2.2em; border-bottom: 3px solid var(--primary-blue); padding-bottom: 10px; margin-top: 40px; } /* Cambiado a azul */
+h2 { font-size: 2.2em; border-bottom: 3px solid var(--primary-blue); padding-bottom: 10px; margin-top: 40px; }
 h3 { font-size: 1.6em; color: var(--dark-grey); }
 h4 { font-size: 1.3em; color: var(--medium-grey); }
 
@@ -45,12 +45,17 @@ p {
 }
 
 .logo {
-    max-height: 100px; /* Aumentado para el logo de ASEMF con espacio en blanco */
+    max-height: 100px;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
 }
 .logo:hover {
     transform: scale(1.05);
+}
+
+/* Indicamos que las imágenes y videos son clickeables */
+.zoomable {
+    cursor: zoom-in; /* Cambia el cursor para indicar que es clickeable */
 }
 
 .responsive-image, .responsive-video {
@@ -87,13 +92,13 @@ ul li, ol li {
 }
 
 ul li i {
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     margin-right: 8px;
 }
 
 /* Header */
 .header {
-    background: linear-gradient(to right, var(--primary-blue), #2a5b94); /* Cambiado a azules */
+    background: linear-gradient(to right, var(--primary-blue), #2a5b94);
     color: white;
     padding: 40px 0;
     text-align: center;
@@ -121,7 +126,7 @@ ul li i {
 /* Sidebar Navigation */
 .sidebar {
     width: 280px;
-    background-color: var(--primary-blue); /* Cambiado a azul */
+    background-color: var(--primary-blue);
     color: white;
     padding: 30px 0;
     box-shadow: var(--shadow);
@@ -156,7 +161,7 @@ ul li i {
 }
 
 .sidebar li a:hover, .sidebar li a.active {
-    background-color: var(--hover-blue); /* Cambiado a azul */
+    background-color: var(--hover-blue);
     transform: translateX(5px);
     border-left: 5px solid white;
 }
@@ -197,8 +202,8 @@ ul li i {
 }
 
 .material-info, .ecography-benefits {
-    background-color: var(--light-blue); /* Cambiado a azul claro */
-    border-left: 6px solid var(--primary-blue); /* Cambiado a azul */
+    background-color: var(--light-blue);
+    border-left: 6px solid var(--primary-blue);
     padding: 20px;
     margin: 25px 0;
     border-radius: 8px;
@@ -214,11 +219,11 @@ ul li i {
 .recommendation-text {
     font-style: italic;
     font-weight: 600;
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     text-align: center;
     margin-top: 30px;
     padding: 15px;
-    background-color: var(--light-blue); /* Cambiado a azul claro */
+    background-color: var(--light-blue);
     border-radius: 8px;
 }
 
@@ -247,11 +252,11 @@ ul li i {
 .benefit-item h3 {
     margin-top: 15px;
     margin-bottom: 10px;
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     font-size: 1.4em;
 }
 .benefit-item i {
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     font-size: 3.5em;
     margin-bottom: 15px;
 }
@@ -271,7 +276,7 @@ ul li i {
 }
 
 .accordion-header {
-    background-color: var(--light-blue); /* Cambiado a azul claro */
+    background-color: var(--light-blue);
     color: var(--dark-grey);
     padding: 18px 25px;
     width: 100%;
@@ -286,7 +291,7 @@ ul li i {
     align-items: center;
 }
 .accordion-header:hover {
-    background-color: #d0e4ed; /* Tono de azul claro al pasar el ratón */
+    background-color: #d0e4ed;
 }
 
 .accordion-header .accordion-icon {
@@ -331,7 +336,7 @@ ul li i {
     text-align: center;
 }
 .image-comparison-grid .image-item h3 {
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -358,7 +363,7 @@ ul li i {
     gap: 15px;
 }
 .advantages-list li {
-    background-color: var(--light-blue); /* Cambiado a azul claro */
+    background-color: var(--light-blue);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -369,7 +374,7 @@ ul li i {
 .advantages-list li i {
     font-size: 1.3em;
     margin-right: 10px;
-    color: var(--primary-blue); /* Cambiado a azul */
+    color: var(--primary-blue);
 }
 
 .final-note {
@@ -378,7 +383,7 @@ ul li i {
     font-weight: 600;
     margin-top: 40px;
     padding: 20px;
-    background-color: var(--light-blue); /* Cambiado a azul claro */
+    background-color: var(--light-blue);
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     color: var(--dark-grey);
@@ -485,14 +490,103 @@ ul li i {
     }
 }
 
+/* Estilos para el efecto fade-in de las secciones */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Estilos para el efecto fade-in de las imágenes */
 .image-fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
-
 .image-fade-in.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* MODAL (LIGHTBOX) STYLES */
+.modal {
+    display: flex; /* Oculto por defecto */
+    position: fixed; /* Permanece encima de todo */
+    z-index: 9999; /* Z-index alto para estar encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Permite scroll si el contenido es muy grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente negro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+
+    opacity: 0; /* Para el efecto de fade-in/out */
+    visibility: hidden; /* Para que no ocupe espacio cuando está oculto */
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content-wrapper {
+    position: relative;
+    max-width: 90%; /* Ajusta el tamaño máximo del contenido del modal */
+    max-height: 90%; /* Ajusta el tamaño máximo del contenido del modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image, .modal-video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Asegura que la imagen/video se ajuste sin distorsión */
+    display: none; /* Oculto por defecto, se muestra con JS */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.modal-video {
+    background-color: black; /* Para evitar ver el fondo si el video es transparente */
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000; /* Asegura que el botón de cerrar esté por encima de la imagen/video */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive para el modal en pantallas pequeñas */
+@media (max-width: 767px) {
+    .modal-content-wrapper {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    .close-button {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
 }
