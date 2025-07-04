@@ -92,7 +92,7 @@ ul li, ol li {
 }
 
 ul li i {
-    color: var(--primary-blue);
+    color: var(--primary-blue); /* Color del icono */
     margin-right: 8px;
 }
 
