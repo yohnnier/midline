@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(targetId).scrollIntoView({
                 behavior: 'smooth'
             });
-
-            // Opcional: Cerrar menú en móvil si se usa un toggle para el sidebar
-            // Si el sidebar es un menú responsivo que se oculta/muestra
-            // Puedes añadir aquí la lógica para ocultarlo después de hacer clic.
         });
     });
 
@@ -53,19 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const accordionContent = button.nextElementSibling;
             const accordionIcon = button.querySelector('.accordion-icon');
 
-            // Toggle la clase 'active' en el encabezado
             button.classList.toggle('active');
 
-            // Toggle la clase 'active' en el icono para rotación
             if (accordionIcon) {
                 accordionIcon.classList.toggle('active');
             }
 
-            // Ajusta la altura del contenido del acordeón para mostrar/ocultar
             if (button.classList.contains('active')) {
                 accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                accordionContent.style.paddingTop = '15px'; // Asegura padding cuando se abre
-                accordionContent.style.paddingBottom = '15px'; // Asegura padding cuando se abre
+                accordionContent.style.paddingTop = '15px';
+                accordionContent.style.paddingBottom = '15px';
             } else {
                 accordionContent.style.maxHeight = 0;
                 accordionContent.style.paddingTop = '0';
@@ -89,12 +82,77 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target); // Dejar de observar una vez que se activa
+                revealObserver.unobserve(entry.target);
             }
         });
     }, revealObserverOptions);
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
+    });
+
+
+    // ---------------------------------------------------
+    // 4. Modal para imágenes y videos (Lightbox)
+    // ---------------------------------------------------
+    const mediaModal = document.getElementById('mediaModal');
+    const modalImage = document.querySelector('.modal-image');
+    const modalVideo = document.querySelector('.modal-video');
+    const closeModalBtn = document.querySelector('.close-button');
+
+    // Función para abrir el modal
+    function openModal(src, type) {
+        // Limpiar y ocultar elementos previos del modal
+        modalImage.style.display = 'none';
+        modalVideo.style.display = 'none';
+        modalVideo.pause(); // Pausar cualquier video anterior
+        modalVideo.removeAttribute('src'); // Limpiar src para evitar precarga
+        modalVideo.load(); // Cargar de nuevo para limpiar
+
+        if (type === 'image') {
+            modalImage.src = src;
+            modalImage.style.display = 'block';
+        } else if (type === 'video') {
+            modalVideo.src = src;
+            modalVideo.style.display = 'block';
+            modalVideo.play(); // Reproducir automáticamente
+        }
+        mediaModal.classList.add('active');
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        mediaModal.classList.remove('active');
+        modalVideo.pause(); // Asegúrate de pausar el video al cerrar
+        modalVideo.currentTime = 0; // Reinicia el video al principio
+        modalImage.src = ''; // Limpia la URL de la imagen
+        modalVideo.removeAttribute('src'); // Limpia la URL del video
+    }
+
+    // Event listener para abrir el modal al hacer clic en imágenes/videos con clase 'zoomable'
+    document.querySelectorAll('.zoomable').forEach(mediaElement => {
+        mediaElement.addEventListener('click', () => {
+            const src = mediaElement.src || mediaElement.querySelector('source').src; // Obtener src de img o source de video
+            const type = mediaElement.tagName.toLowerCase() === 'img' ? 'image' : 'video';
+            openModal(src, type);
+        });
+    });
+
+    // Event listener para cerrar el modal con el botón X
+    closeModalBtn.addEventListener('click', closeModal);
+
+    // Event listener para cerrar el modal al hacer clic fuera del contenido
+    mediaModal.addEventListener('click', (e) => {
+        // Si el clic no fue en la imagen/video o el wrapper (sino en el overlay)
+        if (e.target === mediaModal) {
+            closeModal();
+        }
+    });
+
+    // Event listener para cerrar el modal con la tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mediaModal.classList.contains('active')) {
+            closeModal();
+        }
     });
 });
